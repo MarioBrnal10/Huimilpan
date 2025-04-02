@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Huimilpan/css/estilos.css">
+  <title>Lugares importantes de Huimilpan</title>
+  <!-- Agregar Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilos adicionales */
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* Estilos para el gif de "Ya es todo lo que hay en Huimilpan" */
+    #gif {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Centrar el gif en el centro de la pantalla */
+    #gif img {
+      max-width: 100%;
+      max-height: 500px;
+    }
+  </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="lugares.html">Lugares Turisticos</a></li>
+            <li><a href="culero.html">Lo más culero de Huimilpan</a></li>
+        </ul>
+    </nav>
+
+  <div class="container mt-5">
+    <button id="btnLugares" class="btn btn-primary">¿Conoces los lugares más importantes de Huimilpan?</button>
+
+    <div id="lugaresContainer" class="mt-4">
+      <!-- Las tarjetas de lugares se agregarán aquí -->
+    </div>
+
+    <button id="btnMasLugares" class="btn btn-secondary mt-4" style="display:none;">Conoce más lugares</button>
+
+    <!-- Div para el GIF -->
+    <div id="gif">
+      <img src="../Huimilpan/img/lugar.gif" alt="Gif final" />
+    </div>
+  </div>
+
+  <!-- Agregar los scripts de Bootstrap y el script personalizado -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('btnLugares').addEventListener('click', function() {
+        const lugares = [
+          {
+            nombre: 'Estadio de Béisbol de Huimilpan',
+            descripcion: 'Un lugar ideal para disfrutar de un buen partido de béisbol.',
+            imagen: '../Huimilpan/img/foto5.jpg' // Ruta relativa a la carpeta img
+          },
+          {
+            nombre: 'Cabañas de San Pedro',
+            descripcion: 'Un parque amplio y tranquilo para disfrutar con la familia.',
+            imagen: '../Huimilpan/img/foto7.jpeg' // Ruta relativa a la carpeta img
+          }
+        ];
+      
+        const lugaresContainer = document.getElementById('lugaresContainer');
+        lugaresContainer.innerHTML = ''; // Limpiar cualquier contenido previo
+      
+        lugares.forEach(lugar => {
+          const card = `
+            <div class="col-md-6 mb-4">
+              <div class="card">
+                <img src="${lugar.imagen}" class="card-img-top" alt="${lugar.nombre}">
+                <div class="card-body">
+                  <h5 class="card-title">${lugar.nombre}</h5>
+                  <p class="card-text">${lugar.descripcion}</p>
+                </div>
+              </div>
+            </div>
+          `;
+          lugaresContainer.innerHTML += card;
+        });
+
+        // Mostrar el botón para conocer más lugares
+        document.getElementById('btnMasLugares').style.display = 'block';
+      });
+
+    document.getElementById('btnMasLugares').addEventListener('click', function() {
+      // Mostrar el GIF en el centro de la pantalla
+      const gif = document.getElementById('gif');
+      gif.style.display = 'block';
+    });
+  </script>
+
+  <footer>
+    <img src="../Huimilpan/img/foto1.png" alt="Imagen Footer" class="footer-img">
+  </footer>
+</body>
+</html>

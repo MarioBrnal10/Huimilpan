@@ -1,0 +1,8 @@
+version: '3'
+services:
+  huimilpan-web:
+    build: .
+    container_name: huimilpan_web
+    ports:
+      - "8000:80"
+    restart: always

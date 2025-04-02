@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huimilpan</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <link rel="stylesheet" href="../Huimilpan/css/estilos.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        nav {
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        #button-container {
+            text-align: center;
+        }
+
+        #loading {
+            display: none;
+            font-size: 20px;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .photo-container {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .photo-container img {
+            width: 50%;
+            max-width: 500px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .confirmation-buttons {
+            margin-top: 20px;
+        }
+
+        .confirmation-buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .confirmation-buttons button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="lugares.html">Lugares Turisticos</a></li>
+            <li><a href="culero.html">Lo más culero de Huimilpan</a></li>
+        </ul>
+    </nav>
+
+    <div id="button-container">
+        <button id="viewButton">¿Quieres ver lo más culero de Huimilpan?</button>
+        <div id="loading">Descargando el contenido...</div>
+        <div class="photo-container" id="photoContainer">
+            <img src="../Huimilpan/img/foto8.jpg" alt="Lo más culero de Huimilpan" />
+        </div>
+
+        <div class="confirmation-buttons" id="confirmationButtons" style="display: none;">
+            <button id="confirmButton1">¿Estás seguro?</button>
+            <button id="confirmButton2" style="display: none;">¿Estás segurísimo?</button>
+            <button id="confirmButton3" style="display: none;">¿Seguro? si te traumas no es mi pedo</button>
+        </div>
+    </div>
+
+    <footer>
+        <img src="../Huimilpan/img/foto1.png" alt="Imagen Footer" class="footer-img">
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        document.getElementById('viewButton').addEventListener('click', function () {
+            document.getElementById('viewButton').style.display = 'none'; // Ocultamos el primer botón
+            document.getElementById('confirmationButtons').style.display = 'block'; // Mostramos los botones de confirmación
+
+            // Manejo del primer botón de confirmación
+            document.getElementById('confirmButton1').addEventListener('click', function () {
+                document.getElementById('confirmButton1').style.display = 'none'; // Ocultamos el primer botón
+                document.getElementById('confirmButton2').style.display = 'inline-block'; // Mostramos el segundo botón
+            });
+
+            // Manejo del segundo botón de confirmación
+            document.getElementById('confirmButton2').addEventListener('click', function () {
+                document.getElementById('confirmButton2').style.display = 'none'; // Ocultamos el segundo botón
+                document.getElementById('confirmButton3').style.display = 'inline-block'; // Mostramos el tercer botón
+            });
+
+            // Manejo del tercer botón de confirmación
+            document.getElementById('confirmButton3').addEventListener('click', function () {
+                document.getElementById('loading').style.display = 'block'; // Mostramos el mensaje de carga
+                setTimeout(function() {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('photoContainer').style.display = 'block'; // Mostramos la foto
+                }, 6000); // Animación de carga de 3 segundos
+            });
+        });
+    </script>
+</body>
+</html>
