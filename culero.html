@@ -6,7 +6,7 @@
     <title>Huimilpan</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
-    <link rel="stylesheet" href="../Huimilpan/css/estilos.css">
+    <link rel="stylesheet" href="/css/estilos.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -96,7 +96,7 @@
     <nav>
         <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="lugares.html">Lugares Turisticos</a></li>
+            <li><a href="lugares.html">Lugares Turísticos</a></li>
             <li><a href="culero.html">Lo más culero de Huimilpan</a></li>
         </ul>
     </nav>
@@ -105,7 +105,7 @@
         <button id="viewButton">¿Quieres ver lo más culero de Huimilpan?</button>
         <div id="loading">Descargando el contenido...</div>
         <div class="photo-container" id="photoContainer">
-            <img src="../Huimilpan/img/foto8.jpg" alt="Lo más culero de Huimilpan" />
+            <img src="/img/foto8.jpg" alt="Lo más culero de Huimilpan" />
         </div>
 
         <div class="confirmation-buttons" id="confirmationButtons" style="display: none;">
@@ -116,34 +116,31 @@
     </div>
 
     <footer>
-        <img src="../Huimilpan/img/foto1.png" alt="Imagen Footer" class="footer-img">
+        <img src="/img/foto1.png" alt="Imagen Footer" class="footer-img">
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
         document.getElementById('viewButton').addEventListener('click', function () {
-            document.getElementById('viewButton').style.display = 'none'; // Ocultamos el primer botón
-            document.getElementById('confirmationButtons').style.display = 'block'; // Mostramos los botones de confirmación
+            document.getElementById('viewButton').style.display = 'none';
+            document.getElementById('confirmationButtons').style.display = 'block';
 
-            // Manejo del primer botón de confirmación
             document.getElementById('confirmButton1').addEventListener('click', function () {
-                document.getElementById('confirmButton1').style.display = 'none'; // Ocultamos el primer botón
-                document.getElementById('confirmButton2').style.display = 'inline-block'; // Mostramos el segundo botón
+                document.getElementById('confirmButton1').style.display = 'none';
+                document.getElementById('confirmButton2').style.display = 'inline-block';
             });
 
-            // Manejo del segundo botón de confirmación
             document.getElementById('confirmButton2').addEventListener('click', function () {
-                document.getElementById('confirmButton2').style.display = 'none'; // Ocultamos el segundo botón
-                document.getElementById('confirmButton3').style.display = 'inline-block'; // Mostramos el tercer botón
+                document.getElementById('confirmButton2').style.display = 'none';
+                document.getElementById('confirmButton3').style.display = 'inline-block';
             });
 
-            // Manejo del tercer botón de confirmación
             document.getElementById('confirmButton3').addEventListener('click', function () {
-                document.getElementById('loading').style.display = 'block'; // Mostramos el mensaje de carga
+                document.getElementById('loading').style.display = 'block';
                 setTimeout(function() {
                     document.getElementById('loading').style.display = 'none';
-                    document.getElementById('photoContainer').style.display = 'block'; // Mostramos la foto
-                }, 6000); // Animación de carga de 3 segundos
+                    document.getElementById('photoContainer').style.display = 'block';
+                }, 6000);
             });
         });
     </script>
